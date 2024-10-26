@@ -1,6 +1,6 @@
 'use client'
 
-import { signInCredentials, signUpCredentials } from '@/lib/action'
+import { signInCredentials } from '@/lib/action'
 
 import React from 'react'
 import { LoginButton } from '../button'

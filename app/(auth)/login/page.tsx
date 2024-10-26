@@ -1,5 +1,4 @@
 import FormLogin from "@/components/auth/form-login"
-import FormRegister from "@/components/auth/form-register"
 
 const Login = () => {
   return (
