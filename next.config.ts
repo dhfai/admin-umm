@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
           {
             source: '/',
             destination: '/dashboard',
-            permanent: true, // Set to true for a 308 redirect, which is permanent
+            permanent: true,
           },
         ];
       },
