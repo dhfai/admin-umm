@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import { LuPlus } from 'react-icons/lu';
 
 interface TableProps {
     id: string;
@@ -43,9 +44,9 @@ const Table = () => {
                 },
                 body: JSON.stringify({
                     instansi: newData.instansi,
-                    tarif: parseInt(newData.tarif, 10), // Ensure tarif is an integer
-                    startDate: new Date(newData.start).toISOString(), // Format startDate
-                    endDate: new Date(newData.end).toISOString(), // Format endDate
+                    tarif: parseInt(newData.tarif, 10),
+                    startDate: new Date(newData.start).toISOString(),
+                    endDate: new Date(newData.end).toISOString(),
                     status: newData.status,
                 }),
             });
@@ -57,7 +58,7 @@ const Table = () => {
             const result = await response.json();
             console.log('Successfully added:', result);
 
-            // Reset and close modal after success
+
             setNewData({
                 id: '0',
                 instansi: '',
@@ -155,14 +156,13 @@ const Table = () => {
                         <div className="px-9 pt-5 flex justify-between items-stretch min-h-[70px] pb-0 bg-transparent">
                             <h3 className="flex flex-col items-start m-2 font-medium text-xl text-dark">
                                 <span className="font-semibold text-dark">Dashboard</span>
-                                {/* <span className="mt-1 font-medium text-secondary-dark text-lg">Assalamualaikum: {sessionName}</span> */}
                             </h3>
                             <div className="my-2">
                                 <button
                                     onClick={() => setIsModalOpen(true)}
-                                    className="text-[.925rem] font-medium text-center rounded-2xl py-2 px-5 text-light-inverse bg-light-dark border-0 hover:bg-secondary active:bg-light focus:bg-light"
+                                    className="text-[.925rem] flex text-center items-center font-medium text-center rounded-2xl py-2 px-5 text-light-inverse bg-light-dark border-0 hover:bg-secondary active:bg-light focus:bg-light"
                                 >
-                                    Tambah Data Informasi
+                                    <LuPlus /> Tambah Data
                                 </button>
                             </div>
                         </div>
