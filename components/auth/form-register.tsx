@@ -6,7 +6,7 @@ import React from 'react'
 import { RegisterButton } from '../button'
 const FormRegister = () => {
     const [state, formAction] = React.useActionState(signUpCredentials, null)
-    console.log({state})
+
     return (
         <form action={formAction} className='space-y-6'>
             {state?.message ? (

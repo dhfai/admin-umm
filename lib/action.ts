@@ -61,9 +61,9 @@ export const signInCredentials = async (preveState: unknown, formData: FormData)
         if (error instanceof AuthError) {
             switch (error.type) {
                 case "CredentialsSignin":
-                    return {message: "Invalid credentials"}
+                    return {message: "Email atau password salah...."}
                 default:
-                    return {message: "Something went wrong"}
+                    return {message: "Terjadi kesalahan..."}
             }
         }
         throw error;
