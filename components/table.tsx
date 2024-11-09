@@ -160,19 +160,19 @@ const Table = () => {
                     <tbody>
                       {dataNews.map((data) => (
                         <tr key={data.id} className="border-b border-neutral-200">
-                          <td className="py-3 text-start">{data.instansi}</td>
-                          <td className="py-3 text-end">
+                          <td className="py-3 text-[0.8rem] lg:text-[1.1rem] text-start">{data.instansi}</td>
+                          <td className="py-3 text-[0.8rem] lg:text-[1.1rem]  text-end">
                             {new Intl.NumberFormat("id-ID", {
                               style: "currency",
                               currency: "IDR",
                             }).format(Number(data.tarif))}
                           </td>
-                          <td className="py-3 text-end">{formatDate(data.start)}</td>
-                          <td className="py-3 text-end">{formatDate(data.end)}</td>
-                          <td className="py-3 text-end">
+                          <td className="py-3 text-[0.8rem] lg:text-[1.1rem]  text-end">{formatDate(data.start)}</td>
+                          <td className="py-3 text-[0.8rem] lg:text-[1.1rem] text-end">{formatDate(data.end)}</td>
+                          <td className="py-3 text-[0.8rem] lg:text-[1.1rem] text-end">
                             <button
                               onClick={() => handleDelete(data.id)}
-                              className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+                              className="bg-red-500 hover:bg-red-700 text-[0.5rem] lg:text-[1rem] text-white font-bold py-1 px-3 rounded"
                             >
                               Hapus
                             </button>

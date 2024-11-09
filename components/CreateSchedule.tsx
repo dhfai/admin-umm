@@ -17,10 +17,21 @@ const CreateSchedule = () => {
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
-    setNewData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+
+    if (name === 'tarif') {
+      const numericValue = value.replace(/[^0-9]/g, ''); // Remove any non-numeric characters
+      const formattedValue = new Intl.NumberFormat('id-ID').format(numericValue); // Format as rupiah
+
+      setNewData((prevData) => ({
+        ...prevData,
+        [name]: formattedValue,
+      }));
+    } else {
+      setNewData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -34,7 +45,7 @@ const CreateSchedule = () => {
         },
         body: JSON.stringify({
           instansi: newData.instansi,
-          tarif: parseInt(newData.tarif, 10),
+          tarif: parseInt(newData.tarif.replace(/\./g, ''), 10), // Remove dots for numeric value
           startDate: new Date(newData.start).toISOString(),
           endDate: new Date(newData.end).toISOString(),
           status: newData.status,
@@ -90,7 +101,7 @@ const CreateSchedule = () => {
                 <FaDollarSign />
               </span>
               <input
-                type="number"
+                type="text"
                 id="tarif"
                 name="tarif"
                 value={newData.tarif}
